@@ -9,8 +9,8 @@ const App: FC = () => {
   const [clientName, setClientName] = useState<string>('Jack Chem');
   const [organizationId, setOrganizationId] = useState<string>('AO1231');
   const [tradingMarket, setTradingMarket] = useState<string>('HK');
-  // const [crossEngineEnabled,setCrossEngineEnabled] = useState<string>('');
-  // const [status,setStatus] = useState<string>('');
+  const [crossEngineEnabled, setCrossEngineEnabled] = useState('Y');
+  const [status, setStatus] = useState('Active');
 
   const arrayData: Array<FormInputPropsType> = [
     {
@@ -36,6 +36,22 @@ const App: FC = () => {
       type: 'text',
       stateValue: tradingMarket,
       stateSetter: (item) => setTradingMarket(item),
+    },
+    {
+      label: 'Cross Engine Enabled',
+      name: 'crossEngineEnabled',
+      readOnly: true,
+      type: 'text',
+      stateValue: crossEngineEnabled,
+      stateSetter: (item) => setCrossEngineEnabled(item),
+    },
+    {
+      label: 'Status',
+      name: 'status',
+      readOnly: true,
+      type: 'text',
+      stateValue: status,
+      stateSetter: (item) => setStatus(item),
     },
   ];
 

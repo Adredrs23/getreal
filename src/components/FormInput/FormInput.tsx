@@ -5,14 +5,18 @@ import { FormInputPropsType } from '../../interfaces/FormInputInterface';
 
 // import './FormInputStyles.css';
 
-const FormInputContainer = styled.div`
+type InputProp = {
+  readOnly: boolean | undefined;
+};
+
+const FormInputContainer = styled.div<InputProp>`
   width: 18rem;
   height: 4.5rem;
   padding: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  // border: 1px solid black;
+  border: ${(props) => (props.readOnly ? 'none' : '1px solid black')};
   border-radius: 5px;
   // background-color: red;
 
@@ -31,11 +35,16 @@ const FormInputContainer = styled.div`
     border: none;
     border-radius: inherit;
     outline: none;
+    cursor: ${(props) => (props.readOnly ? 'default' : 'text')};
 
+    background-color: ${(props) =>
+      props.readOnly ? 'none' : 'rgba(0, 0, 0, 0.1)'};
     // background-color: rgba(0, 0, 0, 0.1);
     :hover,
     :focus {
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: ${(props) =>
+        props.readOnly ? 'none' : 'rgba(0, 0, 0, 0.2)'};
+      // background-color: rgba(0, 0, 0, 0.1);
     }
   }
 `;
@@ -45,15 +54,16 @@ const FormInput: FC<FormInputPropsType> = ({
   name,
   stateValue,
   stateSetter,
+  readOnly,
   ...rest
 }) => {
   return (
-    <FormInputContainer>
+    <FormInputContainer readOnly={readOnly}>
       <label htmlFor={name}>{label}</label>
       <input
         id={name}
         value={stateValue}
-        type='number'
+        readOnly={readOnly}
         onChange={(e): void => stateSetter(e.target.value)}
         {...rest}
       />
