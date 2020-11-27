@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styled from '@emotion/styled';
+import FormSelect from '../FormSelect/FormSelect';
 
 type GridProps = {
   gtc?: string;
@@ -26,6 +27,18 @@ const FormContainer: FC = ({ children }) => {
     <FormContainerDiv>
       <GridContainerDiv gtc='repeat(4,1fr)'>{children}</GridContainerDiv>
       <GridContainerDiv>{children}</GridContainerDiv>
+      <GridContainerDiv>
+        <FormSelect
+          label='Execution Venue'
+          name='eVenue'
+          optionValues={[{ label: 'Dog', value: 'dog' }]}
+        />
+        <FormSelect
+          label='check'
+          name='check'
+          optionValues={[{ label: 'CAt', value: 'CAt' }]}
+        />
+      </GridContainerDiv>
     </FormContainerDiv>
   );
 };

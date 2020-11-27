@@ -6,10 +6,10 @@ import { FormInputPropsType } from '../../interfaces/FormInputInterface';
 // import './FormInputStyles.css';
 
 type InputProp = {
-  readOnly: boolean | undefined;
+  readOnly?: boolean;
 };
 
-const FormInputContainer = styled.div<InputProp>`
+export const FormInputContainer = styled.div<InputProp>`
   width: 18rem;
   height: 4.5rem;
   padding: 5px;
@@ -28,7 +28,8 @@ const FormInputContainer = styled.div<InputProp>`
     // background-color: cyan;
   }
 
-  & > input {
+  & > input,
+  & > select {
     height: 2.2rem;
     // padding: 0 5px;
     font-size: 18px;
