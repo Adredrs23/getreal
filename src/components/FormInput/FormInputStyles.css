@@ -1,0 +1,6 @@
+.formInput-container {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+  width: 20%;
+}
