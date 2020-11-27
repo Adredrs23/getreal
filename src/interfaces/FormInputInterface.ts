@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes } from 'react';
 
 export interface FormInputPropsType
   extends InputHTMLAttributes<HTMLInputElement> {
@@ -7,3 +7,7 @@ export interface FormInputPropsType
   stateValue: string | number;
   stateSetter: (item: string) => void;
 }
+
+export type InputProp = {
+  readOnly?: boolean;
+};

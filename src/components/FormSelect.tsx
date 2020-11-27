@@ -1,16 +1,14 @@
-import React, { FC, InputHTMLAttributes } from 'react';
-import { FormInputContainer } from '../FormInput/FormInput';
+import React, { FC } from 'react';
 
-interface FormSelectPropsType extends InputHTMLAttributes<HTMLSelectElement> {
-  label: string;
-  name: string;
-  optionValues: Array<{ label: string; value: string }>;
-}
+import { FormInputContainer } from '../constants/FormInputConstants';
+import { FormSelectPropsType } from '../interfaces/FormSelectInterface';
 
 const FormSelect: FC<FormSelectPropsType> = ({
   name,
   label,
   optionValues,
+  value,
+  setValue,
   ...rest
 }) => {
   let optionsArray = optionValues.map(({ label, value }) => (
@@ -20,7 +18,12 @@ const FormSelect: FC<FormSelectPropsType> = ({
   return (
     <FormInputContainer>
       <label htmlFor={name}>{label}</label>
-      <select id={name} {...rest}>
+      <select
+        id={name}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        {...rest}
+      >
         {optionsArray}
       </select>
     </FormInputContainer>

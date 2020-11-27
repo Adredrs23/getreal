@@ -1,8 +1,8 @@
 import React, { FC, useState } from 'react';
 import './App.css';
-import FormContainer from './components/FormContainer/FormContainer';
-import FormInput from './components/FormInput/FormInput';
-// import { ArrayType } from './interfaces/ArrayTypeInterface';
+import FormContainer from './components/FormContainer';
+import FormInput from './components/FormInput';
+
 import { FormInputPropsType } from './interfaces/FormInputInterface';
 
 const App: FC = () => {
