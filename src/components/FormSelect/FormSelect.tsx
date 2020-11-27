@@ -4,7 +4,7 @@ import { FormInputContainer } from '../FormInput/FormInput';
 interface FormSelectPropsType extends InputHTMLAttributes<HTMLSelectElement> {
   label: string;
   name: string;
-  optionValues: [{ label: string; value: string }];
+  optionValues: Array<{ label: string; value: string }>;
 }
 
 const FormSelect: FC<FormSelectPropsType> = ({

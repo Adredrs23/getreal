@@ -3,8 +3,6 @@ import styled from '@emotion/styled';
 
 import { FormInputPropsType } from '../../interfaces/FormInputInterface';
 
-// import './FormInputStyles.css';
-
 type InputProp = {
   readOnly?: boolean;
 };
@@ -41,12 +39,17 @@ export const FormInputContainer = styled.div<InputProp>`
     background-color: ${(props) =>
       props.readOnly ? 'none' : 'rgba(0, 0, 0, 0.1)'};
     // background-color: rgba(0, 0, 0, 0.1);
+
     :hover,
     :focus {
       background-color: ${(props) =>
         props.readOnly ? 'none' : 'rgba(0, 0, 0, 0.2)'};
       // background-color: rgba(0, 0, 0, 0.1);
     }
+  }
+
+  & > select {
+    cursor: ${(props) => (props.readOnly ? 'default' : 'pointer')};
   }
 `;
 

@@ -1,6 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styled from '@emotion/styled';
 import FormSelect from '../FormSelect/FormSelect';
+import FormTextarea from '../FormTextarea/FormTextarea';
 
 type GridProps = {
   gtc?: string;
@@ -11,8 +12,8 @@ const FormContainerDiv = styled.div`
   flex-direction: column;
   justify-content: space-around;
   background-color: red;
-  width: 80%;
-  height: 80vh;
+  width: 60%;
+  height: 40%;
 `;
 
 const GridContainerDiv = styled.div<GridProps>`
@@ -23,6 +24,8 @@ const GridContainerDiv = styled.div<GridProps>`
 `;
 
 const FormContainer: FC = ({ children }) => {
+  const [comment, setComment] = useState('');
+
   return (
     <FormContainerDiv>
       <GridContainerDiv gtc='repeat(4,1fr)'>{children}</GridContainerDiv>
@@ -36,7 +39,26 @@ const FormContainer: FC = ({ children }) => {
         <FormSelect
           label='check'
           name='check'
+          optionValues={[
+            { label: 'CAt', value: 'CAt' },
+            { label: 'sad', value: 'CasdAt' },
+            { label: 'asd', value: 'hd' },
+          ]}
+        />
+        <FormSelect
+          label='check'
+          name='check'
           optionValues={[{ label: 'CAt', value: 'CAt' }]}
+        />
+      </GridContainerDiv>
+      <GridContainerDiv>
+        <FormTextarea
+          name='comment'
+          label='Comment'
+          rows={8}
+          // cols={33}
+          value={comment}
+          setValue={setComment}
         />
       </GridContainerDiv>
     </FormContainerDiv>
